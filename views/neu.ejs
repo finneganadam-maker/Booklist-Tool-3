@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Neues Buch</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Bücherliste</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/neu">+ Neues Buch</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <h2>Neues Buch hinzufügen</h2>
+
+    <form action="/buch" method="POST">
+
+      <label for="titel-input">Titel:</label><br>
+      <input type="text" id="titel-input" name="titel" required maxlength="200"><br>
+      <small id="zeichen-anzahl">0 / 200 Zeichen</small><br><br>
+
+      <label for="autor">Autor:</label><br>
+      <input type="text" id="autor" name="autor" required><br><br>
+
+      <label for="seiten">Seitenanzahl:</label><br>
+      <input type="number" id="seiten" name="seiten" min="1"><br><br>
+
+      <label>
+        <input type="checkbox" name="gelesen">
+        Bereits gelesen
+      </label><br><br>
+
+      <button type="submit">Speichern</button>
+      <a href="/">Abbrechen</a>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Finnegans Booklist-Tool 2026</p>
+  </footer>
+
+  <script src="/app.js"></script>
+
+</body>
+</html>

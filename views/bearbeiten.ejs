@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buch bearbeiten</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div>
+    <h1>Meine Bücherliste</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/neu">Neues Buch</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <h2>Buch bearbeiten</h2>
+
+    <form action="/buch/<%= buch._id %>/bearbeiten" method="POST">
+
+      <label for="titel">Titel:</label><br>
+      <input type="text" id="titel" name="titel" value="<%= buch.titel %>" required><br><br>
+
+      <label for="autor">Autor:</label><br>
+      <input type="text" id="autor" name="autor" value="<%= buch.autor %>" required><br><br>
+
+      <label for="seiten">Seitenanzahl:</label><br>
+      <input type="number" id="seiten" name="seiten" value="<%= buch.seiten || '' %>" min="1"><br><br>
+
+      <label>
+        <input type="checkbox" name="gelesen" <%= buch.gelesen ? 'checked' : '' %>>
+        Bereits gelesen
+      </label><br><br>
+
+      <button type="submit">Speichern</button>
+      <a href="/">Abbrechen</a>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Finnegans Booklist-Tool 2026</p>
+  </footer>
+
+  <script src="/app.js"></script>
+
+</body>
+</html>
