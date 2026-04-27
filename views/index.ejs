@@ -12,7 +12,7 @@
     <h1>Meine Bücherliste</h1>
     <nav>
       <a href="/">Home</a>
-      <a href="/neu">Neues Buch hinzufügen</a>
+      <a href="/neu">Neues Buch</a>
     </nav>
   </header>
 
@@ -31,9 +31,9 @@
               (<%= buch.seiten %> Seiten)
             <% } %>
             <% if (buch.gelesen) { %>
-              ✓ gelesen
+              <span class="gelesen-badge">✓ gelesen</span>
             <% } else { %>
-              - noch nicht gelesen
+              <span class="nicht-gelesen">noch nicht gelesen</span>
             <% } %>
 
             <a href="/buch/<%= buch._id %>/bearbeiten">Bearbeiten</a>
@@ -48,9 +48,9 @@
 
   </main>
 
-  <div>
+  <footer>
     <p>Finnegans Booklist-Tool 2026</p>
-  </div>
+  </footer>
 
   <script src="/app.js"></script>
 

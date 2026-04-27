@@ -117,6 +117,30 @@ li:last-child {
   border-bottom: none;
 }
 
+/* cards */
+.buch-eintrag {
+  background: #fff;
+  border-radius: 4px;
+  padding: 13px 14px;
+  margin-bottom: 9px;
+  border-bottom: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09);
+}
+
+.buch-eintrag:hover {
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.14);
+}
+
+.gelesen-badge {
+  color: #2e7d32;
+  font-size: 0.88rem;
+}
+
+.nicht-gelesen {
+  color: #999;
+  font-size: 0.88rem;
+}
+
 .buch-titel {
   font-weight: 600;
   color: #222;
