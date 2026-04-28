@@ -38,6 +38,22 @@ router.post('/buch', function(req, res) {
   })
 })
 
+router.get('/buch/:id', function(req, res) {
+  var id = req.params.id
+
+  Buch.findById(id)
+    .then(function(buch) {
+      if (!buch) {
+        res.send('Buch nicht gefunden')
+        return
+      }
+      res.render('detail', { buch: buch })
+    }).catch(function(err) {
+      console.log(err)
+      res.send('Fehler')
+    })
+})
+
 router.get('/buch/:id/bearbeiten', function(req, res) {
   var id = req.params.id
 

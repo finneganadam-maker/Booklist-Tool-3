@@ -155,7 +155,15 @@ small {
   font-size: 12px;
 }
 
-/* forms */
+.detail-actions {
+  margin-top: 22px;
+}
+
+.detail-actions a {
+  margin-right: 16px;
+}
+
+/* form */
 label {
   display: inline-block;
   margin-bottom: 3px;

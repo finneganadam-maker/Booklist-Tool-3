@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+  <main>
+
+    <h2><%= buch.titel %></h2>
+
+    <p><strong>Autor:</strong> <%= buch.autor %></p>
+
+    <% if (buch.seiten) { %>
+      <p><strong>Seiten:</strong> <%= buch.seiten %></p>
+    <% } %>
+
+    <p>
+      <strong>Status:</strong>
+      <% if (buch.gelesen) { %>
+        <span class="gelesen-badge">✓ gelesen</span>
+      <% } else { %>
+        <span class="nicht-gelesen">noch nicht gelesen</span>
+      <% } %>
+    </p>
+
+    <p><strong>Hinzugefügt:</strong> <%= buch.erstellt %></p>
+
+    <div class="detail-actions">
+      <a href="/buch/<%= buch._id %>/bearbeiten">Bearbeiten</a>
+      <a href="/">← Zurück zur Liste</a>
+    </div>
+
+  </main>
+
+<%- include('partials/footer') %>
