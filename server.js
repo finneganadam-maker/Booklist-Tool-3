@@ -3,7 +3,7 @@ var express = require('express')
 var mongoose = require('mongoose')
 var app = express()
 
-var PORT = process.env.PORT
+var PORT = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }))
@@ -20,6 +20,10 @@ mongoose.connect(process.env.MONGODB_URI)
 
 var buchRoutes = require('./routes/buecher')
 app.use(buchRoutes)
+
+app.use(function(req, res) {
+  res.status(404).render('404')
+})
 
 app.listen(PORT, function() {
   console.log('Server läuft auf http://localhost:' + PORT)
