@@ -120,15 +120,19 @@ li:last-child {
 /* cards */
 .buch-eintrag {
   background: #fff;
-  border-radius: 4px;
-  padding: 13px 14px;
-  margin-bottom: 9px;
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
   border-bottom: none;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09);
+  border: 1px solid #dce6f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  transition: all 0.25s ease;
 }
 
 .buch-eintrag:hover {
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.14);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(44, 111, 173, 0.15);
+  border-color: #2c6fad;
 }
 
 .gelesen-badge {
