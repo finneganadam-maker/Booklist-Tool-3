@@ -34,7 +34,11 @@ router.post('/buch', function(req, res) {
   })
   .catch(function(err) {
       console.log('Fehler beim Speichern:', err)
-      res.send('Fehler beim Speichern - vielleicht fehlt Titel oder Autor?')
+      if (err.name === 'ValidationError') {
+        res.render('neu', { errors: err.errors, buch: req.body })
+      } else {
+        res.send('Fehler beim Speichern')
+      }
   })
 })
 
@@ -79,13 +83,19 @@ router.post('/buch/:id/bearbeiten', function(req, res) {
     autor: req.body.autor,
     seiten: req.body.seiten,
     gelesen: req.body.gelesen === 'on' ? true : false
-  }).then(function() {
+  }, { runValidators: true }).then(function() {
       console.log('gespeichert')
       res.redirect('/')
   })
   .catch(function(err) {
     console.log('Fehler beim Aktualisieren', err)
-    res.send('Fehler')
+    if (err.name === 'ValidationError') {
+      var buchDaten = req.body
+      buchDaten._id = id
+      res.render('bearbeiten', { buch: buchDaten, errors: err.errors })
+    } else {
+      res.send('Fehler')
+    }
   })
 })
 

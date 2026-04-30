@@ -1,33 +1,25 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neues Buch</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-
-  <header>
-    <h1>Bücherliste</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/neu">+ Neues Buch</a>
-    </nav>
-  </header>
+<%- include('partials/header') %>
 
   <main>
 
     <h2>Neues Buch hinzufügen</h2>
 
+    <% if (typeof errors !== 'undefined') { %>
+      <ul class="fehler-liste">
+        <% Object.values(errors).forEach(function(e) { %>
+          <li><%= e.message %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+
     <form action="/buch" method="POST">
 
       <label for="titel-input">Titel:</label><br>
-      <input type="text" id="titel-input" name="titel" required maxlength="200"><br>
+      <input type="text" id="titel-input" name="titel" maxlength="200"><br>
       <small id="zeichen-anzahl">0 / 200 Zeichen</small><br><br>
 
       <label for="autor">Autor:</label><br>
-      <input type="text" id="autor" name="autor" required><br><br>
+      <input type="text" id="autor" name="autor"><br><br>
 
       <label for="seiten">Seitenanzahl:</label><br>
       <input type="number" id="seiten" name="seiten" min="1"><br><br>
@@ -44,11 +36,4 @@
 
   </main>
 
-  <footer>
-    <p>Finnegans Booklist-Tool 2026</p>
-  </footer>
-
-  <script src="/app.js"></script>
-
-</body>
-</html>
+<%- include('partials/footer') %>

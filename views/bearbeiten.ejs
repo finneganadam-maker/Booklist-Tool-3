@@ -1,33 +1,25 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buch bearbeiten</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-
-  <header>
-    <h1>Meine Bücherliste</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/neu">Neues Buch</a>
-    </nav>
-  </header>
+<%- include('partials/header') %>
 
   <main>
 
     <h2>Buch bearbeiten</h2>
     <a href="/">← Zurück zur Liste</a><br><br>
 
+    <% if (typeof errors !== 'undefined') { %>
+      <ul class="fehler-liste">
+        <% Object.values(errors).forEach(function(e) { %>
+          <li><%= e.message %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+
     <form action="/buch/<%= buch._id %>/bearbeiten" method="POST">
 
       <label for="titel">Titel:</label><br>
-      <input type="text" id="titel" name="titel" value="<%= buch.titel %>" required><br><br>
+      <input type="text" id="titel" name="titel" value="<%= buch.titel %>"><br><br>
 
       <label for="autor">Autor:</label><br>
-      <input type="text" id="autor" name="autor" value="<%= buch.autor %>" required><br><br>
+      <input type="text" id="autor" name="autor" value="<%= buch.autor %>"><br><br>
 
       <label for="seiten">Seitenanzahl:</label><br>
       <input type="number" id="seiten" name="seiten" value="<%= buch.seiten || '' %>" min="1"><br><br>
@@ -44,11 +36,4 @@
 
   </main>
 
-  <footer>
-    <p>Finnegans Booklist-Tool 2026</p>
-  </footer>
-
-  <script src="/app.js"></script>
-
-</body>
-</html>
+<%- include('partials/footer') %>

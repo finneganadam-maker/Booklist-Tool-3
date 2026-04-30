@@ -167,6 +167,12 @@ small {
   margin-right: 16px;
 }
 
+.fehler-liste {
+  color: #c0392b;
+  margin-bottom: 10px;
+  padding-left: 18px;
+}
+
 /* form */
 label {
   display: inline-block;
